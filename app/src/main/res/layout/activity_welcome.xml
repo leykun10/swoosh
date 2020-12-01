@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".WelcomeActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -62,8 +62,6 @@
         android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat"
         android:gravity="center"
-        android:paddingLeft="0"
-        android:paddingTop="0"
         android:text="Find  a team in your city and dominate the league "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -80,6 +78,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/swoosh_button"
         android:text="Get Started"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:backgroundTint="#FFFFFF"
         app:backgroundTintMode="multiply"
