@@ -48,30 +48,32 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <ToggleButton
-            android:id="@+id/toggleButton6"
+            android:id="@+id/begineerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:background="@drawable/swoosh_toggle"
+            android:onClick="onBeginnerClicked"
+            android:paddingEnd="30dp"
             android:paddingRight="30dp"
             android:text="@string/beginner"
             android:textColor="#FFFFFF"
             android:textOff="@string/beginner"
             android:textOn="@string/beginner"
             android:textSize="18sp"
-            android:paddingEnd="30dp"
             tools:ignore="RtlSymmetry" />
 
         <ToggleButton
-            android:id="@+id/toggleButton7"
+            android:id="@+id/ballerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
             android:background="@drawable/swoosh_toggle"
+            android:onClick="onBalerClicked"
             android:text="@string/baler"
             android:textColor="#FFFFFF"
             android:textOff="@string/baler"
@@ -93,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/LeagueNextBtn"
+        android:id="@+id/finishButtonn"
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
@@ -102,6 +104,7 @@
         android:layout_marginRight="8dp"
         android:background="@drawable/swoosh_toggle"
         android:clickable="true"
+        android:onClick="onSkillFinishClicked"
         android:text="@string/finish"
         android:textSize="18sp"
         app:backgroundTint="#FFFFFF"
