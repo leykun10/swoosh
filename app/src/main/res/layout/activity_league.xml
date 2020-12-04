@@ -62,7 +62,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:onClick="womenButtonClicked"
+            android:id="@+id/womenButton"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:background="@drawable/swoosh_toggle"
@@ -73,7 +74,8 @@
             android:textSize="18sp" />
 
         <ToggleButton
-            android:id="@+id/toggleButton3"
+            android:id="@+id/menButton"
+            android:onClick="menButtonClicked"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:layout_marginTop="24dp"
@@ -86,7 +88,8 @@
             android:textSize="18sp" />
 
         <ToggleButton
-            android:id="@+id/toggleButton5"
+            android:onClick="coedButtonClicked"
+            android:id="@+id/coedButton"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:background="@drawable/swoosh_toggle"
@@ -99,12 +102,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/leagueNextButton"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:background="@drawable/swoosh_button"
         android:onClick="leagueNextClicked"
-        android:text="Next"
+        android:text="@string/next"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:backgroundTint="@color/white"
