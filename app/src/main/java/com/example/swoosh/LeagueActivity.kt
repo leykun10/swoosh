@@ -1,26 +1,39 @@
 package com.example.swoosh
 
+import Model.Player
+import Utilities.ExtraLeague
+import Utilities.ExtraPlayer
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_league.*
 
 class LeagueActivity : BaseActivity() {
+     var player:Player? = Player(league = null,skill = null)
 
-     var selectedLeague:String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (savedInstanceState != null) {
+            print(savedInstanceState.toString())
+            player= savedInstanceState?.getParcelable(ExtraPlayer)
+        }
         setContentView(R.layout.activity_league)
 
+    }
 
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putParcelable(ExtraPlayer,player)
+        super.onSaveInstanceState(outState)
     }
     fun leagueNextClicked(view:View){
-        if(selectedLeague!=null){
-            val skillActivity  = Intent(this,SkillActivity::class.java)
+        if(player?.league!=null){
+            val skillActivity  = Intent(this, SkillActivity::class.java)
             skillActivity.putExtra(
-                ExtraLeague,selectedLeague
+                ExtraPlayer,
+                player
             )
             startActivity(skillActivity)
         }
@@ -32,18 +45,18 @@ class LeagueActivity : BaseActivity() {
     }
 
     fun womenButtonClicked(view:View){
-            selectedLeague="womenLeague"
+            player?.league="womenLeague"
             menButton.isChecked=false
             coedButton.isChecked=false
     }
     fun menButtonClicked(view:View){
-        selectedLeague="menLeague"
+       player?.league="menLeague"
         womenButton.isChecked=false
         coedButton.isChecked=false
 
     }
     fun coedButtonClicked(view:View){
-        selectedLeague="coedLeague"
+      player?.league="coedLeague"
         menButton.isChecked=false
         womenButton.isChecked=false
 

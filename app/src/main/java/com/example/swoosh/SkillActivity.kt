@@ -1,27 +1,35 @@
 package com.example.swoosh
 
+import Model.Player
+import Utilities.ExtraPlayer
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : BaseActivity() {
 
-   var league:String? = null
-   var skill:String? = null
+  lateinit var player: Player
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
+        player= intent.getParcelableExtra<Player>(ExtraPlayer)!!
+        if(savedInstanceState != null){
+            player=savedInstanceState.getParcelable<Player>(ExtraPlayer)!!
+        }
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putParcelable(ExtraPlayer,player)
+        super.onSaveInstanceState(outState)
 
     }
+
     fun  onSkillFinishClicked(view:View){
-  if (skill!=null){
+  if (player.skill!=null){
       var finishIntent= Intent(this,FinishActivity::class.java )
-      league=intent.getStringExtra(ExtraLeague)
-      finishIntent.putExtra(ExtraLeague,league)
-      finishIntent.putExtra(ExtraSkill,skill)
+      finishIntent.putExtra(ExtraPlayer,player)
       startActivity(finishIntent)
   }
         else{
@@ -29,11 +37,11 @@ class SkillActivity : BaseActivity() {
   }
     }
    fun  onBeginnerClicked(view: View){
-  skill = "beginner"
+  player.skill = "beginner"
        ballerButton.isChecked=false
    }
     fun onBalerClicked(view: View){
-        skill="baler"
+        player.skill="baler"
         begineerButton.isChecked=false
     }
 
